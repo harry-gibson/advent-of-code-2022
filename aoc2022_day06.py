@@ -2,18 +2,12 @@ from collections import deque
 
 from aocd import data
 
-d = deque(data[:4], maxlen=4)
 
-for i, c in enumerate(data[4:]):
-    if len(set(d)) == 4:
-        print(i + 4)
-        break
-    d.append(c)
+def day_06(message, markerlen):
+    d = deque(message[:markerlen], maxlen=markerlen)
+    for i, c in enumerate(message[markerlen:]):
+        if len(set(d)) == markerlen: return i + markerlen
+        d.append(c)
 
-d = deque(data[:14], maxlen=14)
-
-for i, c in enumerate(data[14:]):
-    if len(set(d)) == 14:
-        print(i + 14)
-        break
-    d.append(c)
+print(f"Part 1: {day_06(data, 4)}")
+print(f"Part 2: {day_06(data, 14)}")
