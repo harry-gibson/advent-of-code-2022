@@ -38,7 +38,6 @@ for line in data.split('\n')[2:]:
     else:
         assert line.startswith('$ ls')
 
-    
 # Part 1:
 print(sum(s for s in (f.tree_size() for f in root_dir.dirs()) if s<=100000))
 
